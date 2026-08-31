@@ -39,9 +39,9 @@ Decalage ~2.5° makes the front pair stall first — pitch stability and stall
 recovery are geometric, not commanded. Four identical wing elements from one
 mold; front/rear differ only in root-fitting incidence.
 
-- Span 10.0 m, area 13.0 m², chord 0.72 m constant
-- Element: 4.7 m root-to-fin in plan, built as two 2.35 m panels with a
-  mid-span fold joint
+- Span 10.1 m, area 13.0 m², chord 0.72 m constant
+- Element per side: 0.24 m fixed root stub + 2.25 m inner panel + 2.25 m
+  outer panel (equal spans — a fold requirement, see docs/fold-mechanism.md)
 - Effective span ≈ 11.7 m (Prandtl box-wing), effective AR ≈ 10.5
 - Section: D-nose torsion box to 30% chord, sail aft, ~14% t/c, morphing
   trailing edge (camber flap) on the front pair
@@ -59,15 +59,16 @@ mold; front/rear differ only in root-fitting incidence.
 | Seat, harness, cockpit controls | 4 |
 | Landing gear: 3 wheels, 2 hub motors, brakes, suspension | 13 |
 | Propulsion: 2 motors, ESCs, folding props, mounts | 9 |
-| Flight battery 1.6 kWh | 11 |
+| Flight battery — modular, 2–4 × 0.9 kWh @ 5.75 kg | 11.5–23 |
 | Avionics, FBW actuators, actuator battery, wiring | 6 |
-| **Empty (Part 103 accounting)** | **103** |
+| **Empty (Part 103 accounting)** | **103.5–115** |
 | Ballistic parachute (physical, excluded from Part 103 count) | +7 |
 | Pilot (design range 60–100 kg) | +85 nominal |
 | **Flying weight, nominal** | **~195 kg** |
 
-Mass margin (12 kg) is the program's scarcest resource. Any subsystem that
-busts its line pays for it out of another line, explicitly.
+Core empty (everything except battery) = 92 kg; battery fills the gap to
+the 115 kg cap as swappable modules. Full audit, line justifications, and
+the battery-as-residual-claimant rule: **docs/mass-audit.md**.
 
 ## 5. Speeds and compliance stall (binding)
 
@@ -88,7 +89,7 @@ At 195 kg flying weight, S = 13.0 m², sea level:
   counter-rotating (tops inboard), Ø1.0–1.1 m folding props
 - Static thrust ~550 N combined; + wheel drive → grass takeoff roll 45–70 m
 - Climb ~1.0–1.3 m/s at full power (195 kg); one motor = full sustainer
-- Cruise/sustain power: ~2.2 kW electrical → ~40 min powered on 1.6 kWh
+- Cruise/sustain power: ~2.2 kW electrical → 40–85 min powered (2–4 modules)
 - Energy reality: one climb to 500 m costs ~600–700 Wh. The pack buys one
   launch + saves + reserved go-around (~25 Wh, never spendable by the
   planner), or two modest launches. Soaring is the range extender.
@@ -99,27 +100,26 @@ At 195 kg flying weight, S = 13.0 m², sea level:
 
 ## 7. Fold architecture (the novel mechanism)
 
-Two nested parallelogram linkages, both 1-DOF:
+Fully defined in **docs/fold-mechanism.md**; verified by the parametric
+model `tools/fold_kinematics.py` (collision-checked through the complete
+sequence); figure: docs/fold_sequence.png. Summary:
 
-- **Stage 1 — transverse:** each side's outer-front panel + fin + outer-rear
-  panel form a parallelogram four-bar (hinge axes streamwise, at the
-  mid-span joints). The outer assembly folds inboard over the inner panels;
-  the fin translates without rotating.
-- **Stage 2 — plan-view scissor:** capsule (fixed link) → inner front wing →
-  fin-and-folded-outers (coupler) → inner rear wing. Root hinge axes
-  vertical; equal semi-spans and root-separation = tip-separation make it a
-  parallelogram; both wings sweep aft together alongside the capsule.
-- Folded envelope: ~4.4 m × 1.9 m × 1.7 m (standard parking space).
-  Width can drop toward ~1.3 m with skewed stage-2 hinge axes
-  (Sto-Wing-style chord rotation) — decide after the sub-scale prototype.
-- Locks: 3 per side (1 scissor over-center, 2 mid-span), each spring-loaded
-  toward locked, each position-sensed. A 1-DOF stage needs exactly one lock.
-- Loads: flight bending and shear cross the hinges perpendicular to their
-  free axes (pins carry this); the locks react only in-plane shear.
-- Nacelles mount on the inner rear panels — propulsion never moves relative
-  to its structure during folding.
-- Fold is a ground-only operation: fold actuators are unpowered in flight
-  and mechanically incapable of driving against flight loads.
+- Two nested parallelogram linkages, **all hinge axes vertical** → the fold
+  is gravity-neutral; actuators are sized by wind (≤ 4 m/s fold limit),
+  not by lifting panels.
+- Stage 1: outer panels + fin double back 177° about mid-span knuckles
+  (fin translates — parallelogram coupler). Stage 2: inner panels scissor
+  88° **forward** about 240 mm root stubs; wings wrap the nose.
+- **Folded: 3.91 × 2.46 × 2.08 m** — standard parking space.
+- Flight loads cross every hinge perpendicular to its free axis: bearing
+  couples carry bending (5–6 kN ultimate); locks carry only in-plane
+  moments (< 0.7 kN). Two lock groups per side, spring-loaded to locked,
+  position-sensed, tapered pins for zero freeplay.
+- The fold owns one hull constraint: the footwell (first 0.8 m, below
+  z ≈ 0.5) must stay ≤ 0.32 m wide — the doubled front-outer trailing
+  edges sweep past it with 18 mm margin.
+- Fold is ground-only: interlocked against airspeed and prop arming;
+  propulsion cannot arm until all locks confirm and a control sweep passes.
 
 ## 8. Ground mode
 

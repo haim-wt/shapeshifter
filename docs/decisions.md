@@ -47,3 +47,21 @@ At realistic flying weight the clean wing stalls at ~23.9 kt — inside
 measurement error of the Part 103 limit. The morphing trailing edge
 (CLmax ≥ 1.7 in landing config) is what puts stall at ≤ 23.1 kt with
 margin. It is a required system, sized and tested as such.
+
+## D-008 · 2026-08-31 · Battery is the residual claimant of all mass
+Goal is maximum battery, not minimum weight. Core empty (no battery) = 92 kg
+target; battery = 115 − core, carried as 2–4 swappable ~0.9 kWh modules.
+Gear load cells measure weight & CG at power-on; software enforces MTOW 205
+and CG — module count is the trim variable (heavier pilot, fewer modules).
+Rule: any kg added must name the kg it displaces or the Wh it forfeits.
+
+## D-009 · 2026-08-31 · Fold: all-vertical axes, double-back + FORWARD scissor
+Both stages are parallelograms with vertical hinge axes: gravity-neutral,
+max height 2.1 m throughout, 1-DOF per stage. Scissor sweeps FORWARD —
+forced by the chord-flip trap (doubling flips outer-panel chords; aft sweep
+buries the front inner TE in the cabin — model-verified, unfixable).
+Consequences owned: 240 mm fixed root stubs (swing-arc clearance), equal
+2.25 m panel spans, nacelles above the wing plane, and a hull footwell
+≤ 0.32 m wide over the first 0.8 m. Folded 3.91 × 2.46 × 2.08 m.
+Carrier-style over-the-top folding rejected: gravity-fighting actuators,
+4 m height excursion, 2-axis mid joints.

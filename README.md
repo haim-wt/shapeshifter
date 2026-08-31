@@ -5,12 +5,12 @@ fly-by-wire safety, in a vehicle that drives itself to the launch point.
 
 ## The three modes
 
-1. **Drive** — folded (~4.4 × 1.9 m footprint), self-propelled on its wheels
+1. **Drive** — folded (3.9 × 2.5 m footprint), self-propelled on its wheels
    at scooter speeds. Off-road / field / garage-to-launch; not road-legal by
    design. Folded ground handling also removes the classic wind-on-the-ground
    hazard of foot-launched gliders.
-2. **Unfold** — two automated fold stages (nested parallelogram linkages),
-   three sensor-verified locks per side. The aircraft will not arm propulsion
+2. **Unfold** — two automated fold stages (nested parallelogram
+   linkages, all-vertical hinge axes, gravity-neutral), sensor-verified locks. The aircraft will not arm propulsion
    unless every lock confirms.
 3. **Fly** — a 10 m joined-wing box glider, L/D ≈ 16–17, with twin electric
    tractor motors for takeoff (~50–70 m of grass), climb, go-around, and
@@ -27,14 +27,16 @@ fly-by-wire safety, in a vehicle that drives itself to the launch point.
 | Stall (landing config, camber flap) | ≤ 23 kt — Part 103 limit is 24 kt |
 | Best glide | L/D ≈ 16–17 at ~16 m/s; min sink ≈ 0.9 m/s |
 | Propulsion | 2 × ~3 kW tractor motors, folding props, rear wing LE |
-| Battery | 1.6 kWh flight pack + isolated avionics/actuator pack |
-| Folded | ~4.4 × 1.9 × 1.7 m — standard parking space |
+| Battery | modular 2–4 × 0.9 kWh swappable packs + isolated actuator pack |
+| Folded | 3.91 × 2.46 × 2.08 m — standard parking space |
 | Regulatory | FAR Part 103 ultralight (no license, no certification) |
 | Recovery | ballistic parachute (excluded from Part 103 empty weight) |
 
 ## Status
 
-Concept definition. See [docs/spec.md](docs/spec.md) for the v0.2 numbers,
+Concept definition. See [docs/spec.md](docs/spec.md) for the numbers,
+[docs/fold-mechanism.md](docs/fold-mechanism.md) for the fold design,
+[docs/mass-audit.md](docs/mass-audit.md) for the mass/battery ledger,
 [docs/decisions.md](docs/decisions.md) for the decision record, and
 [docs/exploration-history.md](docs/exploration-history.md) for how the
 configuration was reached and what was rejected on the way.
