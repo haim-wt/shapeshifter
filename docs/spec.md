@@ -85,9 +85,12 @@ At 195 kg flying weight, S = 13.0 m², sea level:
 
 ## 6. Propulsion and energy
 
-- 2 × ~3 kW continuous tractor motors, rear wing leading edge at ±1.2 m,
-  counter-rotating (tops inboard), Ø1.0–1.1 m folding props
-- Static thrust ~550 N combined; + wheel drive → grass takeoff roll 45–70 m
+- 2 × T-Motor P80 III KV100 (ag-drone class, >3.3 kW cont, IP55), rear
+  wing leading edge at ±1.2 m, counter-rotating (tops inboard), Ø0.81 m
+  (32") CF props — rigid on prototype, folding hub as product item;
+  ESC: T-Motor Alpha 80A 12S FOC (LVC off, telemetry to FC)
+- Static thrust ~380 N combined (~190 N/motor at ~3.5 kW); + wheel drive
+  → grass takeoff roll ~50–60 m
 - Climb ~1.0–1.3 m/s at full power (195 kg); one motor = full sustainer
 - Cruise/sustain power: ~2.2 kW electrical → 27–80 min powered (1–3 packs); bus 12S (44.4 V nom / 50.4 V max)
 - Energy reality: one climb to 500 m costs ~600–700 Wh. The pack buys one

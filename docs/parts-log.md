@@ -97,3 +97,17 @@ Owner call: trade ~7% pack energy for the mainstream 12S component catalog
   rated >= 12S / 50.4 V · >= 3 kW cont · ~13 N.m · <= 2 kg · folding-prop
   tractor mount. Same paramotor/heavy-lift shelf; BadAss 6245-155Kv
   remains rejected (Kv still ~2.3x too high).
+
+**2026-09-01 · T-Motor P80 III KV100 (12S, >3.3 kW cont, ~640 g, IP55, ~$260)**
+Verdict: **ADOPTED-CANDIDATE — closes the propulsion chain.** Ag-drone
+motor built for continuous load; pairs natively with the Alpha 80A 12S ESC.
+Chain: LiTech 12S pack -> Alpha 80A FOC -> P80 III KV100 -> 32" CF prop.
+Filter amendment: the Kv 55-70 filter assumed the O1.05 m prop; the correct
+filter is the motor+prop PAIR: >=190 N static per axis at <=3.5 kW,
+cruise-capable, <=2 kg. P80III + 32x11 passes: ~190 N/motor static,
+~380 N combined + ~250 N wheel drive -> ~50-60 m grass takeoff at 195 kg;
+climb ~1.3-1.5 m/s; cruise 25 A/motor. Propulsion group underruns its 9 kg
+line by ~2-3 kg -> battery headroom (D-008). Open items: folding hub for
+32" blades (prototype flies rigid props, ~1 L/D point penalty); confirm
+real continuous thermal rating in the nacelle; KV100 variant, not KV120.
+Prop spec changes: O0.81 m (32"), ~3,200 rpm loaded, tip Mach ~0.41.
