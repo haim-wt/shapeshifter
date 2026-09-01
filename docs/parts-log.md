@@ -27,3 +27,19 @@ only), 20C power-cell weight penalty vs energy cells (~0.5 kWh forfeited
 vs custom 21700 modules at equal mass), LiPo fire discipline (contained
 module bays, charge off-vehicle). Verify weight and true capacity on
 receipt. Production path remains custom energy-optimized 21700 modules.
+
+**2026-09-01 · LiTech LP13S6P17A150AL001 — 13S6P li-ion, 48V/25.2Ah/1210 Wh,
+CAN/RS485/BT BMS, IP65 metal case, ~150 A cont. (per part-number code), OEM**
+Verdict: **RFQ — potential production module, pending weight.** Li-ion
+energy cells (the right chemistry for our ~1.4C draw), product-grade cycle
+life, CAN BMS, and 2-pack redundancy (one pack alone sustains level flight).
+Weight unpublished: at <=7.5 kg (161 Wh/kg) it displaces Fullymax AND the
+self-built module plan; at ~9 kg it loses. RFQ spec: 48V-class, ~1.2 kWh,
+<=7.5 kg, >=100 A continuous, CAN, named 21700 energy cells, UN38.3, real
+datasheet mass. NOTE: 13S conflicts with the Fullymax 12S bus — softened
+freeze below.
+
+**Bus voltage freeze, amended:** "48 V-class" — all propulsion components
+(motors, ESCs, wiring, contactors) rated for 54.6 V max (13S ceiling), so
+both 12S (Fullymax) and 13S (LiTech) packs remain compatible until the
+pack decision lands. Do not mix pack types on one aircraft.
