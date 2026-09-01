@@ -30,16 +30,18 @@ receipt. Production path remains custom energy-optimized 21700 modules.
 
 **2026-09-01 · LiTech LP13S6P17A150AL001 — 13S6P li-ion, 48V/25.2Ah/1210 Wh,
 CAN/RS485/BT BMS, IP65 metal case, ~150 A cont. (per part-number code), OEM**
-Verdict: **RFQ — potential production module, pending weight.** Li-ion
-energy cells (the right chemistry for our ~1.4C draw), product-grade cycle
-life, CAN BMS, and 2-pack redundancy (one pack alone sustains level flight).
-Weight unpublished: at <=7.5 kg (161 Wh/kg) it displaces Fullymax AND the
-self-built module plan; at ~9 kg it loses. RFQ spec: 48V-class, ~1.2 kWh,
-<=7.5 kg, >=100 A continuous, CAN, named 21700 energy cells, UN38.3, real
-datasheet mass. NOTE: 13S conflicts with the Fullymax 12S bus — softened
-freeze below.
+Weight confirmed: **6,800 g ±30 g → 177.9 Wh/kg** — beats the module spec
+(157) and Fullymax (150), with IP65 metal case and CAN included. Internally
+consistent: 78 x ~4.9 Ah 21700 energy cells (~5.5 kg) + 1.3 kg case/BMS.
+Verdict: **ADOPTED as the flight battery** (displaces Fullymax, which is
+struck). Aircraft fit: 3 packs = 20.4 kg / 3.63 kWh -> empty 112.4 kg
+(2.6 kg under the Part 103 cap), ~87 min sustain / ~1,870 m cumulative
+climb, max pilot ~85 kg; 2 packs -> pilot ~92 kg; 1 pack -> ~99 kg. Climb
+draw 42 A/pack vs ~150 A rating; any single pack sustains level flight.
+Verify on receipt: shipped weight incl. connectors, actual cell model and
+its continuous discharge rating (150 A is decoded from the part number,
+unconfirmed), UN38.3.
 
-**Bus voltage freeze, amended:** "48 V-class" — all propulsion components
-(motors, ESCs, wiring, contactors) rated for 54.6 V max (13S ceiling), so
-both 12S (Fullymax) and 13S (LiTech) packs remain compatible until the
-pack decision lands. Do not mix pack types on one aircraft.
+**Bus voltage FROZEN: 13S — 48.1 V nominal, 54.6 V max.** All propulsion
+components (motors, ESCs, wiring, contactors) sized to 54.6 V. Do not mix
+pack types on one aircraft.
