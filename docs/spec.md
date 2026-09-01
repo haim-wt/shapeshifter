@@ -59,9 +59,9 @@ mold; front/rear differ only in root-fitting incidence.
 | Seat, harness, cockpit controls | 4 |
 | Landing gear: 3 wheels, 2 hub motors, brakes, suspension | 13 |
 | Propulsion: 2 motors, ESCs, folding props, mounts | 9 |
-| Flight battery — LiTech 13S6P, 1–3 × 1.21 kWh @ 6.8 kg | 6.8–20.4 |
+| Flight battery — LiTech 12S6P (RFQ), 1–3 × 1.12 kWh @ ~6.35 kg | 6.4–19.1 |
 | Avionics, FBW actuators, actuator battery, wiring | 6 |
-| **Empty (Part 103 accounting)** | **98.8–112.4** |
+| **Empty (Part 103 accounting)** | **98.4–111.1** |
 | Ballistic parachute (physical, excluded from Part 103 count) | +7 |
 | Pilot (design range 60–100 kg) | +85 nominal |
 | **Flying weight, nominal** | **~195 kg** |
@@ -89,7 +89,7 @@ At 195 kg flying weight, S = 13.0 m², sea level:
   counter-rotating (tops inboard), Ø1.0–1.1 m folding props
 - Static thrust ~550 N combined; + wheel drive → grass takeoff roll 45–70 m
 - Climb ~1.0–1.3 m/s at full power (195 kg); one motor = full sustainer
-- Cruise/sustain power: ~2.2 kW electrical → 29–87 min powered (1–3 packs)
+- Cruise/sustain power: ~2.2 kW electrical → 27–80 min powered (1–3 packs); bus 12S (44.4 V nom / 50.4 V max)
 - Energy reality: one climb to 500 m costs ~600–700 Wh. The pack buys one
   launch + saves + reserved go-around (~25 Wh, never spendable by the
   planner), or two modest launches. Soaring is the range extender.

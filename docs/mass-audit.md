@@ -46,9 +46,10 @@ and every bust — it is the flexible line, by design.
 
 ## 3. Battery architecture: modular, and the W&B is measured
 
-**Selected: LiTech LP13S6P17A150AL001 — 1–3 swappable packs × 1.21 kWh,
-6.8 kg each (177.9 Wh/kg, CAN BMS, IP65).** See docs/parts-log.md. One-hand
-carry, charge off-vehicle, no charging infrastructure needed at the field.
+**Selected: LiTech 12S6P (RFQ from adopted 13S6P design) — 1–3 swappable
+packs × ~1.12 kWh, ~6.35 kg each (~176 Wh/kg, CAN BMS, IP65).** Bus: 12S,
+44.4 V nom / 50.4 V max. See docs/parts-log.md. One-hand carry, charge
+off-vehicle, no charging infrastructure needed at the field.
 
 The vehicle weighs itself: load cells in the three gear legs give total
 weight and CG at power-on. Software enforces MTOW 205 kg and CG limits —
@@ -56,9 +57,9 @@ module count is the trim variable:
 
 | pilot | packs | battery | flying wt | powered endurance* | cumulative climb* |
 |---|---|---|---|---|---|
-| ≤ 85 kg | 3 | 3.63 kWh | ≤ 205 | ~87 min | ~1870 m |
-| ≤ 92 kg | 2 | 2.42 kWh | ≤ 205 | ~58 min | ~1250 m |
-| ≤ 99 kg | 1 | 1.21 kWh | ≤ 205 | ~29 min | ~625 m |
+| ≤ 87 kg | 3 | 3.35 kWh | ≤ 205 | ~80 min | ~1730 m |
+| ≤ 93 kg | 2 | 2.23 kWh | ≤ 205 | ~53 min | ~1150 m |
+| ≤ 100 kg | 1 | 1.12 kWh | ≤ 205 | ~27 min | ~580 m |
 
 *usable 88% of nominal; sustain ~2.2 kW; climb conversion ~0.32 (drag paid
 during climb); go-around reserve (~25 Wh) always withheld by the planner.

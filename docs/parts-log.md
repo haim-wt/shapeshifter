@@ -75,3 +75,25 @@ FOC, companion series to the U-family motors our filter targets). Pick the
 FOC · telemetry out (current/temp/rpm) to the FC · low-voltage cutoff
 configurable OFF (the energy manager owns sag decisions, never the ESC) ·
 <= 200 g · nacelle-mountable with propwash cooling.
+
+## Bus decision, final
+
+**2026-09-01 · Bus RE-FROZEN at 12S: 44.4 V nominal, 50.4 V max.**
+Owner call: trade ~7% pack energy for the mainstream 12S component catalog
+(ESCs, motors, chargers). Supersedes the 13S freeze. Consequences:
+
+- **Battery:** RFQ LiTech for a 12S6P build of the adopted pack (same
+  21700 energy cells, CAN BMS, IP65): est. 1,117 Wh / ~6.35 kg / 176 Wh/kg.
+  3 packs = 19.1 kg / 3.35 kWh -> empty ~111 kg (4 kg under the cap).
+  Endurance: ~80 min sustain / ~1,730 m cumulative climb (3 packs);
+  max pilot at 3 packs ~87 kg, 2 packs ~93 kg, 1 pack ~100 kg.
+- **ESC:** T-Motor Alpha 80A 12S FLIPS TO ADOPTED-CANDIDATE (52.2 V rating
+  clears 50.4 V full charge). Climb draw 68 A vs 80 A continuous -
+  propwash-cooled, acceptable; go-around at 4 kW = 90 A exceeds continuous,
+  sits inside the 100 A/10 s peak -> firmware caps sustained go-around at
+  3.5 kW/motor (79 A). Verify before adoption: LVC configurable OFF,
+  telemetry via Alpha Data Link into the FC.
+- **Motor filter, revised:** Kv 55-70 (2,200 rpm loaded at 44.4 V) ·
+  rated >= 12S / 50.4 V · >= 3 kW cont · ~13 N.m · <= 2 kg · folding-prop
+  tractor mount. Same paramotor/heavy-lift shelf; BadAss 6245-155Kv
+  remains rejected (Kv still ~2.3x too high).
