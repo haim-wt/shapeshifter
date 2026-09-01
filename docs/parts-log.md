@@ -45,3 +45,20 @@ unconfirmed), UN38.3.
 **Bus voltage FROZEN: 13S — 48.1 V nominal, 54.6 V max.** All propulsion
 components (motors, ESCs, wiring, contactors) sized to 54.6 V. Do not mix
 pack types on one aircraft.
+
+## Motors
+
+**2026-09-01 · BadAss 6245-155Kv outrunner ($300, giant-scale RC)**
+Verdict: **NO — Kv mismatch.** 155 Kv on the 13S bus = ~5,800 rpm loaded;
+our O~1.05 m folding props need 2,000-2,400 rpm. Flying it means either a
+~0.5 m prop (static thrust drops ~35%, grass takeoff stretches from
+~60 m to 120+ m — kills the short-field story) or a 2.5-3:1 belt redrive
+in the nacelle (rejected class of solution). Likely also 12S-max rating vs
+our 54.6 V bus ceiling. Same lesson as the e-bike motor in the exploration,
+mirrored: match the motor to the prop's rpm, then shop.
+
+**Motor filter (frozen):** Kv 50-65 · rated >= 54.6 V (14S label) ·
+>= 3 kW continuous / ~4 kW 30 s · ~13 N.m continuous · <= 2 kg ·
+tractor mount, folding-prop hub. This lives in the paramotor /
+heavy-lift-drone catalog (O120-155 mm outrunners: MAD M-series, T-Motor
+U15 family, Hacker Q150 class), not giant-scale RC.
