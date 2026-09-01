@@ -62,3 +62,16 @@ mirrored: match the motor to the prop's rpm, then shop.
 tractor mount, folding-prop hub. This lives in the paramotor /
 heavy-lift-drone catalog (O120-155 mm outrunners: MAD M-series, T-Motor
 U15 family, Hacker Q150 class), not giant-scale RC.
+
+## ESCs
+
+**2026-09-01 · T-Motor Alpha 80A 12S FOC ESC ($130, 110 g, 80 A cont / 100 A 10 s)**
+Verdict: **NO — voltage ceiling 52.2 V vs our 54.6 V (13S full charge).**
+Right class in every other respect (current margin over 62 A climb draw,
+FOC, companion series to the U-family motors our filter targets). Pick the
+14S/HV sibling instead.
+
+**ESC filter (frozen):** rated >= 14S / 58 V · >= 80 A continuous ·
+FOC · telemetry out (current/temp/rpm) to the FC · low-voltage cutoff
+configurable OFF (the energy manager owns sag decisions, never the ESC) ·
+<= 200 g · nacelle-mountable with propwash cooling.
