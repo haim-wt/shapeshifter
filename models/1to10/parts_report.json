@@ -1,0 +1,82 @@
+{
+ "wing_inner": {
+  "watertight": true,
+  "volume_cm3": 107.95,
+  "bbox_mm": [
+   72.0,
+   10.3,
+   225.0
+  ],
+  "fits_256": true
+ },
+ "wing_outer": {
+  "watertight": true,
+  "volume_cm3": 107.92,
+  "bbox_mm": [
+   72.0,
+   10.7,
+   225.0
+  ],
+  "fits_256": true
+ },
+ "fin_blank": {
+  "watertight": true,
+  "volume_cm3": 18.87,
+  "bbox_mm": [
+   35.0,
+   4.2,
+   205.0
+  ],
+  "fits_256": true
+ },
+ "root_stub_front": {
+  "watertight": true,
+  "volume_cm3": 11.51,
+  "bbox_mm": [
+   71.9,
+   10.5,
+   24.0
+  ],
+  "fits_256": true
+ },
+ "root_stub_rear": {
+  "watertight": true,
+  "volume_cm3": 11.51,
+  "bbox_mm": [
+   72.0,
+   10.3,
+   24.0
+  ],
+  "fits_256": true
+ },
+ "capsule_pod": {
+  "watertight": true,
+  "volume_cm3": 1037.88,
+  "bbox_mm": [
+   74.0,
+   140.0,
+   210.0
+  ],
+  "fits_256": true
+ },
+ "hinge_lug": {
+  "watertight": true,
+  "volume_cm3": 0.42,
+  "bbox_mm": [
+   12.0,
+   9.0,
+   5.0
+  ],
+  "fits_256": true
+ },
+ "hinge_lug_offset": {
+  "watertight": true,
+  "volume_cm3": 1.14,
+  "bbox_mm": [
+   12.0,
+   21.0,
+   5.0
+  ],
+  "fits_256": true
+ }
+}
