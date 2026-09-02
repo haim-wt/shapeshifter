@@ -1,0 +1,8 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "script",
+  "author": "Shapeshifter",
+  "description": "Builds the Shapeshifter 1:10 model parametrically (wing panels, fins, stubs, pod, lugs).",
+  "supportedOS": "windows|mac",
+  "editEnabled": true
+}

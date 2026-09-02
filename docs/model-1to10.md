@@ -44,7 +44,7 @@ structure (printed skins are rigid), mass properties, or actuator loads.
 | STL | qty | material | orientation / notes |
 |---|---|---|---|
 | `wing_inner` | 4 | LW-PLA | span-vertical, as printed (no twist → not chiral) |
-| `wing_outer` | 2 + 2 **mirrored** | LW-PLA | span-vertical. **Chiral:** washout has handedness. Print 2, then mirror in Bambu Studio (right-click → Mirror → X) and print 2 |
+| `wing_outer` | 2 + 2 **mirrored** | LW-PLA | span-vertical. **Chiral:** washout has handedness. Print 2, then mirror in Bambu Studio **along Z (the print/span axis)** and print 2. Do NOT mirror X — that reverses the chord. (The STEP set ships `wing_outer_L` and `_R` pre-mirrored.) |
 | `fin_blank` | 2 | LW-PLA or PLA | vertical; 3.2 mm spar hole |
 | `root_stub_front` / `_rear` | 2 + 2 | PETG | these carry the decalage; glue to pod |
 | `capsule_pod` | 1 | PLA / PETG | lying on its side; 3 walls, 0–4% infill; nose taper *is* the footwell (fold-critical) |
@@ -105,13 +105,35 @@ hinges — the flexure idea, cheaply), 2 motors on the rear inner panels at
 "cannot arm unless locked" interlock in the flight controller — the
 first end-to-end exercise of the safety logic.
 
+## Fusion 360 / CAD workflow
+
+Three routes, from quickest to most editable:
+
+1. **STL** (`models/1to10/*.stl`) — slice and print. Not editable.
+2. **STEP** (`models/1to10/step/*.step`, from `tools/model_step.py` via
+   CadQuery/OpenCascade) — true B-rep solids. *File > Insert > Insert
+   Derive* or drag into Fusion: they land as editable bodies you can add
+   fillets, pockets, and joints to. This set is one revision ahead of the
+   STLs: **hinge-lug pockets are cut into every panel end** on the 25% chord
+   line (5.4 × 10 mm deep, through the section) so lugs register instead
+   of being placed by eye; the spar hole sits on the twist axis; alignment
+   pins are 20 mm blind holes at each end; `wing_outer_L/R` are both
+   provided.
+3. **Native parametric** (`tools/fusion360/Shapeshifter1to10/`) — a Fusion
+   360 API script that rebuilds everything as Fusion features with user
+   parameters (`ss_chord`, `ss_inner`, `ss_washout`, `ss_decalage`, …).
+   Copy the folder into Fusion's `API/Scripts/` directory, open a new
+   design, *Utilities > Add-Ins > Scripts > Run*. Edit any `ss_*` value in
+   *Modify > Change Parameters* and the model regenerates. This script was
+   written without a Fusion instance to test on; if it errors, paste the
+   traceback from the message box and it will be fixed.
+
 ## Known limitations of this geometry (v0)
 
 - Panels are solid lofts; skins come from slicer wall settings, not modeled
   ribs. Fine for LW-PLA at this size.
-- Hinge lugs are generic plates; their placement on panel end-faces is
-  by hand (glue at 25% chord, pin axis vertical). A v1 should merge lug
-  pockets into the panel ends.
+- STL panels have no lug pockets (placement by hand at 25% chord); the
+  STEP and Fusion versions do.
 - Pod is a clean loft with no canopy line, hatch, or gear — a shape and
   mass placeholder. The nose taper approximates the footwell requirement.
 - No nacelles yet; phase-3 motors mount on printed saddles.
