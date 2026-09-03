@@ -49,6 +49,23 @@ Printable STLs for a Bambu P-series (256 mm cube) live in `models/1to10/`
 script in `tools/fusion360/`. Build plan, print counts, and test cards in
 [docs/model-1to10.md](docs/model-1to10.md).
 
+## Driving Fusion 360 directly
+
+Autodesk's Fusion MCP server (Fusion: *Preferences > General > API > enable
+Fusion MCP Server*, default port 27182) is registered in `.mcp.json` as a
+project-scoped MCP server. It listens on loopback, so it is reachable only
+from a Claude Code session running on the same machine as Fusion:
+
+```
+git clone <repo> && cd shapeshifter
+git checkout claude/shared-conversation-review-vau7yj
+claude            # approve the "fusion" MCP server when prompted
+```
+
+Then ask Claude to build the 1:10 model in the open Fusion design — it can
+drive Fusion's API live instead of running the blind script in
+`tools/fusion360/`.
+
 ## Next physical articles (in order)
 
 1. Sub-scale fold mechanism (both parallelogram stages + locks) — the fold
